@@ -1,9 +1,14 @@
+import Navbar from './components/Navbar'
+
 function App() {
   return (
-    <main style={{ padding: '2rem', textAlign: 'center', fontFamily: 'system-ui, sans-serif' }}>
-      <h1>React E-Commerce App</h1>
-      <p>Application is running successfully.</p>
-    </main>
+    <div className="app-container">
+      <Navbar />
+      <main style={{ padding: '3rem 1.5rem', textAlign: 'center' }}>
+        <h1>React E-Commerce App</h1>
+        <p>Application and navigation layout are running successfully.</p>
+      </main>
+    </div>
   )
 }
 
