@@ -2,92 +2,88 @@ import './Hero.css'
 
 function Hero() {
   return (
-    <section className="hero-section" aria-label="Hero Showcase">
+    <section className="hero-section" aria-label="Hero Promotion">
       <div className="hero-container">
-        {/* Left Column: Copy & CTAs */}
+        {/* Left Column: Retail Promo Content */}
         <div className="hero-content">
-          <span className="hero-badge">✨ New Season Collection</span>
+          <div className="hero-tag-badge">Seasonal Clearance Sale</div>
           <h1 className="hero-title">
-            Elevate Your Everyday Style with <span className="hero-highlight">TrendMart</span>
+            Premium Essentials for Everyday Living
           </h1>
           <p className="hero-description">
-            Discover curated fashion, cutting-edge lifestyle essentials, and premium accessories designed for comfort, quality, and timeless appeal.
+            Discover handpicked electronics, timeless apparel, and contemporary home accents engineered for comfort, style, and durability.
           </p>
 
           <div className="hero-actions">
             <a href="#shop" className="btn btn-primary">
               Shop Now
-              <svg
-                className="btn-arrow"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
             </a>
             <a href="#categories" className="btn btn-secondary">
               Browse Categories
             </a>
           </div>
 
-          {/* Social Proof / Stats Strip */}
-          <div className="hero-stats">
-            <div className="stat-item">
-              <span className="stat-number">10k+</span>
-              <span className="stat-label">Happy Customers</span>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Curated Products</span>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
-              <span className="stat-number">4.9 ★</span>
-              <span className="stat-label">Rating</span>
-            </div>
+          <div className="hero-offer-highlight">
+            <span className="offer-tag">Special Offer</span>
+            <span className="offer-text">Enjoy up to 40% off selected bestsellers this week</span>
           </div>
         </div>
 
-        {/* Right Column: Pure CSS Visual Showcase */}
-        <div className="hero-visual">
-          <div className="visual-card-wrapper">
-            <div className="visual-card">
-              <div className="visual-card-header">
-                <span className="card-tag">Featured Special</span>
-                <span className="card-discount">-30% OFF</span>
-              </div>
-              <div className="visual-graphic">
-                <div className="graphic-circle"></div>
-                <div className="graphic-cube">
-                  <span className="cube-icon">🛍️</span>
-                </div>
-              </div>
-              <div className="visual-card-footer">
-                <h3 className="card-item-title">Premium Lifestyle Collection</h3>
-                <p className="card-item-subtitle">Handcrafted & Sustainable Materials</p>
-              </div>
-            </div>
+        {/* Right Column: Clean Retail Banner Showcase */}
+        <div className="hero-banner-frame">
+          <img
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=80"
+            alt="TrendMart Lifestyle Collection Showcase"
+            className="hero-banner-image"
+            loading="eager"
+          />
+          <div className="hero-banner-badge">
+            <span className="badge-title">Handpicked Quality</span>
+            <span className="badge-subtitle">Verified authentic products</span>
+          </div>
+        </div>
+      </div>
 
-            {/* Floating Info Badges */}
-            <div className="floating-badge badge-top-right">
-              <span className="badge-icon">⚡</span>
-              <div>
-                <strong>Fast Delivery</strong>
-                <p>2-3 Business Days</p>
-              </div>
+      {/* Trust & Guarantee Strip */}
+      <div className="trust-strip-wrapper">
+        <div className="trust-strip">
+          <div className="trust-item">
+            <svg className="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V3.75a1.125 1.125 0 00-1.125-1.125H3.375A1.125 1.125 0 002.25 3.75v10.5" />
+            </svg>
+            <div>
+              <p className="trust-title">Free Delivery</p>
+              <p className="trust-subtitle">On all orders above ₹999</p>
             </div>
+          </div>
 
-            <div className="floating-badge badge-bottom-left">
-              <span className="badge-icon">🛡️</span>
-              <div>
-                <strong>Verified Quality</strong>
-                <p>100% Authentic</p>
-              </div>
+          <div className="trust-item">
+            <svg className="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            <div>
+              <p className="trust-title">100% Genuine</p>
+              <p className="trust-subtitle">Direct from verified brands</p>
+            </div>
+          </div>
+
+          <div className="trust-item">
+            <svg className="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            <div>
+              <p className="trust-title">7-Day Returns</p>
+              <p className="trust-subtitle">Easy, hassle-free policy</p>
+            </div>
+          </div>
+
+          <div className="trust-item">
+            <svg className="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 002.25 18.75z" />
+            </svg>
+            <div>
+              <p className="trust-title">Secure Payments</p>
+              <p className="trust-subtitle">UPI, Cards & NetBanking</p>
             </div>
           </div>
         </div>

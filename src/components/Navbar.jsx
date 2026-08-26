@@ -14,21 +14,27 @@ function Navbar() {
 
   return (
     <header className="navbar-header">
+      {/* Top Promotional Announcement Bar */}
+      <div className="announcement-bar">
+        <p>⚡ Free Delivery across India on orders over ₹999 | 100% Original Products</p>
+      </div>
+
       <nav className="navbar-container" aria-label="Main Navigation">
-        {/* Brand / Store Logo Area */}
+        {/* Brand / Store Logo */}
         <a href="#home" className="navbar-brand" onClick={closeMobileMenu}>
-          <span className="brand-accent">Trend</span>Mart
+          <span className="brand-name">TrendMart</span>
+          <span className="brand-tag">.in</span>
         </a>
 
         {/* Desktop Navigation Links */}
         <ul className="nav-links desktop-links">
           <li>
-            <a href="#home" className="nav-link active">
+            <a href="#home" className="nav-link">
               Home
             </a>
           </li>
           <li>
-            <a href="#shop" className="nav-link">
+            <a href="#shop" className="nav-link active">
               Shop
             </a>
           </li>
@@ -51,7 +57,7 @@ function Navbar() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth="2"
+              strokeWidth="1.8"
               stroke="currentColor"
               aria-hidden="true"
             >
@@ -61,6 +67,7 @@ function Navbar() {
                 d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.669 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119.993z"
               />
             </svg>
+            <span className="cart-label">Cart</span>
             <span className="cart-badge">0</span>
           </button>
 
@@ -88,12 +95,12 @@ function Navbar() {
       >
         <ul className="mobile-nav-links">
           <li>
-            <a href="#home" className="mobile-nav-link active" onClick={closeMobileMenu}>
+            <a href="#home" className="mobile-nav-link" onClick={closeMobileMenu}>
               Home
             </a>
           </li>
           <li>
-            <a href="#shop" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <a href="#shop" className="mobile-nav-link active" onClick={closeMobileMenu}>
               Shop
             </a>
           </li>

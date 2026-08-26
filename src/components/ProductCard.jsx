@@ -7,38 +7,43 @@ function ProductCard({ product }) {
 
   return (
     <article className="product-card" aria-label={name}>
-      {/* Product Image Container */}
-      <div className="product-image-wrapper">
+      {/* Product Image Frame */}
+      <div className="product-image-frame">
         <img
           src={image}
           alt={name}
           className="product-image"
           loading="lazy"
         />
-        <span className="product-category-tag">{category}</span>
+        <span className="product-category-badge">{category}</span>
       </div>
 
-      {/* Product Info */}
-      <div className="product-info">
-        <div className="product-rating" aria-label={`Rating ${rating?.rate || 0} out of 5 stars`}>
-          <span className="rating-star" aria-hidden="true">★</span>
-          <span className="rating-score">{rating?.rate?.toFixed(1) || '0.0'}</span>
-          <span className="rating-count">({rating?.count || 0})</span>
+      {/* Product Details */}
+      <div className="product-body">
+        {/* Rating Pill */}
+        <div className="product-rating-row">
+          <span className="rating-pill">
+            <span>{rating?.rate?.toFixed(1) || '4.5'}</span>
+            <span className="rating-star">★</span>
+          </span>
+          <span className="rating-count">({rating?.count || 0} reviews)</span>
         </div>
 
+        {/* Product Title */}
         <h3 className="product-title" title={name}>
           {name}
         </h3>
 
+        {/* Short Description */}
         <p className="product-description" title={description}>
           {description}
         </p>
 
-        {/* Footer: Price & Add to Cart */}
-        <div className="product-card-footer">
-          <div className="product-price-wrapper">
-            <span className="price-label">Price</span>
+        {/* Price & Action Area */}
+        <div className="product-footer">
+          <div className="product-price-block">
             <span className="product-price">₹{price.toLocaleString('en-IN')}</span>
+            <span className="price-tax-note">Incl. of all taxes</span>
           </div>
 
           <button
@@ -47,7 +52,7 @@ function ProductCard({ product }) {
             aria-label={`Add ${name} to cart`}
           >
             <svg
-              className="cart-btn-icon"
+              className="btn-icon"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -55,13 +60,9 @@ function ProductCard({ product }) {
               stroke="currentColor"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-            <span>Add to Cart</span>
+            <span>Add</span>
           </button>
         </div>
       </div>
