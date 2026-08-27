@@ -1,7 +1,7 @@
 import ProductCard from './ProductCard'
 import './ProductGrid.css'
 
-function ProductGrid({ products = [], onResetFilters }) {
+function ProductGrid({ products = [], onResetFilters, onSelectProduct }) {
   if (products.length === 0) {
     return (
       <div className="product-grid-empty" role="status">
@@ -41,7 +41,11 @@ function ProductGrid({ products = [], onResetFilters }) {
     <div className="product-grid-wrapper">
       <div className="product-grid" aria-label="Product list">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            onSelectProduct={onSelectProduct}
+          />
         ))}
       </div>
     </div>

@@ -6,7 +6,7 @@ import ProductGrid from '../components/ProductGrid'
 import { products, categories } from '../data/products'
 import './Home.css'
 
-function Home() {
+function Home({ onSelectProduct }) {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('default')
@@ -128,6 +128,7 @@ function Home() {
           <ProductGrid
             products={filteredProducts}
             onResetFilters={isFiltered ? handleResetFilters : undefined}
+            onSelectProduct={onSelectProduct}
           />
         </div>
       </section>

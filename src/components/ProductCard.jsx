@@ -1,19 +1,40 @@
 import { useCart } from '../context/CartContext'
 import './ProductCard.css'
 
-function ProductCard({ product }) {
+function ProductCard({ product, onSelectProduct }) {
   const { addToCart } = useCart()
 
   if (!product) return null
 
   const { name, price, category, image, description, rating } = product
 
-  const handleAddToCart = () => {
+  const handleCardClick = () => {
+    if (onSelectProduct) {
+      onSelectProduct(product)
+    }
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleCardClick()
+    }
+  }
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation()
     addToCart(product)
   }
 
   return (
-    <article className="product-card" aria-label={name}>
+    <article
+      className="product-card"
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label={`View details for ${name}`}
+    >
       {/* Product Image Frame */}
       <div className="product-image-frame">
         <img

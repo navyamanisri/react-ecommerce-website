@@ -6,18 +6,19 @@ export const CartContext = createContext()
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([])
 
-  // Add product to cart, or increment quantity if it already exists
-  const addToCart = (product) => {
+  // Add product to cart with custom quantity, or increment quantity if it already exists
+  const addToCart = (product, quantity = 1) => {
+    const qtyToAdd = Math.max(1, parseInt(quantity, 10) || 1)
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex((item) => item.id === product.id)
       if (existingItemIndex > -1) {
         return prevItems.map((item, index) =>
           index === existingItemIndex
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + qtyToAdd }
             : item
         )
       }
-      return [...prevItems, { ...product, quantity: 1 }]
+      return [...prevItems, { ...product, quantity: qtyToAdd }]
     })
   }
 
