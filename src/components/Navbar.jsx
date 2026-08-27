@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useCart } from '../context/CartContext'
 import './Navbar.css'
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { totalItems } = useCart()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -50,7 +52,7 @@ function Navbar() {
           <button
             type="button"
             className="cart-button"
-            aria-label="Shopping Cart with 0 items"
+            aria-label={`Shopping Cart with ${totalItems} ${totalItems === 1 ? 'item' : 'items'}`}
           >
             <svg
               className="cart-icon"
@@ -68,7 +70,7 @@ function Navbar() {
               />
             </svg>
             <span className="cart-label">Cart</span>
-            <span className="cart-badge">0</span>
+            <span className="cart-badge">{totalItems}</span>
           </button>
 
           {/* Mobile Hamburger Toggle Button */}

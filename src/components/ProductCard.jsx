@@ -1,9 +1,16 @@
+import { useCart } from '../context/CartContext'
 import './ProductCard.css'
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart()
+
   if (!product) return null
 
   const { name, price, category, image, description, rating } = product
+
+  const handleAddToCart = () => {
+    addToCart(product)
+  }
 
   return (
     <article className="product-card" aria-label={name}>
@@ -49,6 +56,7 @@ function ProductCard({ product }) {
           <button
             type="button"
             className="add-to-cart-btn"
+            onClick={handleAddToCart}
             aria-label={`Add ${name} to cart`}
           >
             <svg
