@@ -114,9 +114,11 @@
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.cart-button:hover {
-  border-color: var(--color-text-main);
-  background-color: var(--color-bg-subtle);
+.cart-button:hover,
+.cart-button.active {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
 }
 
 .cart-icon {

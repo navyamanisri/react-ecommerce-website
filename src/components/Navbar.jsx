@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useCart } from '../context/CartContext'
 import './Navbar.css'
 
-function Navbar() {
+function Navbar({ currentView = 'home', onNavigate }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { totalItems } = useCart()
 
@@ -14,6 +14,21 @@ function Navbar() {
     setIsMobileMenuOpen(false)
   }
 
+  const handleNavClick = (view, targetHash) => {
+    if (onNavigate) {
+      onNavigate(view)
+    }
+    closeMobileMenu()
+    if (targetHash) {
+      setTimeout(() => {
+        const element = document.querySelector(targetHash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 50)
+    }
+  }
+
   return (
     <header className="navbar-header">
       {/* Top Promotional Announcement Bar */}
@@ -23,7 +38,14 @@ function Navbar() {
 
       <nav className="navbar-container" aria-label="Main Navigation">
         {/* Brand / Store Logo */}
-        <a href="#home" className="navbar-brand" onClick={closeMobileMenu}>
+        <a
+          href="#home"
+          className="navbar-brand"
+          onClick={(e) => {
+            e.preventDefault()
+            handleNavClick('home', '#home')
+          }}
+        >
           <span className="brand-name">TrendMart</span>
           <span className="brand-tag">.in</span>
         </a>
@@ -31,17 +53,38 @@ function Navbar() {
         {/* Desktop Navigation Links */}
         <ul className="nav-links desktop-links">
           <li>
-            <a href="#home" className="nav-link">
+            <a
+              href="#home"
+              className={`nav-link ${currentView === 'home' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('home', '#home')
+              }}
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#shop" className="nav-link active">
+            <a
+              href="#shop"
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('home', '#shop')
+              }}
+            >
               Shop
             </a>
           </li>
           <li>
-            <a href="#categories" className="nav-link">
+            <a
+              href="#categories"
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('home', '#categories')
+              }}
+            >
               Categories
             </a>
           </li>
@@ -51,7 +94,8 @@ function Navbar() {
         <div className="navbar-actions">
           <button
             type="button"
-            className="cart-button"
+            className={`cart-button ${currentView === 'cart' ? 'active' : ''}`}
+            onClick={() => handleNavClick('cart')}
             aria-label={`Shopping Cart with ${totalItems} ${totalItems === 1 ? 'item' : 'items'}`}
           >
             <svg
@@ -97,17 +141,38 @@ function Navbar() {
       >
         <ul className="mobile-nav-links">
           <li>
-            <a href="#home" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <a
+              href="#home"
+              className={`mobile-nav-link ${currentView === 'home' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('home', '#home')
+              }}
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#shop" className="mobile-nav-link active" onClick={closeMobileMenu}>
+            <a
+              href="#shop"
+              className="mobile-nav-link"
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('home', '#shop')
+              }}
+            >
               Shop
             </a>
           </li>
           <li>
-            <a href="#categories" className="mobile-nav-link" onClick={closeMobileMenu}>
+            <a
+              href="#categories"
+              className="mobile-nav-link"
+              onClick={(e) => {
+                e.preventDefault()
+                handleNavClick('home', '#categories')
+              }}
+            >
               Categories
             </a>
           </li>
@@ -118,3 +183,4 @@ function Navbar() {
 }
 
 export default Navbar
+
